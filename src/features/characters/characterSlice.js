@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk, } from '@reduxjs/toolkit'
-import { data } from 'autoprefixer';
 import axios from 'axios';
 
 const initialState = {
@@ -13,7 +12,6 @@ export const getCharacters = createAsyncThunk("characters/getCharacters",async({
     try{
         
        const {data}= await axios.get(`https://www.anapioficeandfire.com/api/characters/${id}` )
-        console.log('data',data)
         return data
         
         
@@ -21,10 +19,8 @@ export const getCharacters = createAsyncThunk("characters/getCharacters",async({
 })
 
 export const getHouse = createAsyncThunk('characters/getHouse',async({housename})=>{
-    let query =  `name=House Tyrell of Highgarden`
     try{
-        const {data} = await axios.get(`https://www.anapioficeandfire.com/api/houses?name=${housename}` )
-        console.log('house-data',data)
+        const {data} = await axios.get(`https://www.anapioficeandfire.com/api/houses/${housename}` )
         return data
     }catch(err){console.error(err)}
 })
