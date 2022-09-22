@@ -1,12 +1,11 @@
-import { createSlice, createAsyncThunk, } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     title:'',
     houseName:'',
     houseWords:'',
+    region:'',
     userInputs:{},
-    isCorrect:false,
-    isModalOpen:false
 }
 
 export const formSlice = createSlice({
@@ -15,21 +14,26 @@ export const formSlice = createSlice({
     reducers:{
         SET_TITLE:(state,action)=>{
             state.title = action.payload
-            console.log('title',state.title)
         },
         SET_HOUSENAME:(state,action)=>{
             state.houseName = action.payload
-            console.log('hname',state.houseName)
         },
         SET_HOUSEWORDS:(state,action)=>{
             state.houseWords = action.payload
-            console.log('words',state.houseWords)
+        },
+        SET_REGION:(state,action)=>{
+            state.region = action.payload
         },
         SET_RESULTS:(state,action)=>{
-            state.isCorrect = true
             state.userInputs = action.payload
+        },
+        RESET:(state)=>{
+            state.title = '';
+            state.houseName = '';
+            state.houseWords = '';
+            state.region = ''
         }
     },
 })
-export const{SET_TITLE,SET_HOUSENAME,SET_HOUSEWORDS,SET_RESULTS} = formSlice.actions
+export const{SET_TITLE,SET_HOUSENAME,SET_HOUSEWORDS,SET_REGION,SET_RESULTS,RESET} = formSlice.actions
 export default formSlice.reducer
