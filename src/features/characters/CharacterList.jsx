@@ -21,10 +21,8 @@ export const CharacterList = () => {
         );
     
         Promise.all(promises).then(res=>{
-            console.log('resp',res)
             dispatch(SET_CHARACTERS(res))
-        })
-    
+        })   
     }, [])
 
     const getInfo = (housename)=>{
