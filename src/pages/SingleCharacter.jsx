@@ -1,21 +1,23 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { HousesChart } from '../components/HousesChart';
 import { SeasonChart } from '../components/SeasonChart';
 
 export const SingleCharacter = () => {
     const {cname} = useParams();
-    console.log('ID',cname)
+    const navigate = useNavigate()
     const characterState = useSelector(state=>state.characters)
     const{characterList,house} = characterState
-    console.log('clist',characterList)
 
     // get curr character
     const currCharacter = characterList.find(character=>character.name === cname)
-    console.log('curr',currCharacter)
+
   return (
     <section>
+        <button className="bg-orange-400 text-white p-1 rounded hover:bg-orange-500 " onClick={()=> navigate(-1)}>
+         Back
+        </button> 
         <h1 className='text-3xl text-white'>Character Details</h1>
         <div className='flex gap-x-8 p-4 my-6'>
             <div className='flex '>
