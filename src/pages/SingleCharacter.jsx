@@ -16,24 +16,37 @@ export const SingleCharacter = () => {
     console.log('curr',currCharacter)
   return (
     <section>
-        <h1 className='text-2xl'>hello</h1>
-        <div className='flex justify-between p-4 my-6'>
-            <div className='w-24 border border-gray-500 m-4'>
-            <img src={currCharacter.person.imgurl} alt={currCharacter.name} 
-            className=''/>
+        <h1 className='text-3xl text-white'>Character Details</h1>
+        <div className='flex gap-x-8 p-4 my-6'>
+            <div className='flex '>
+                <img src={currCharacter.person.imgurl} alt={currCharacter.name} 
+                className='object-cover w-48 h-48 grow'/>
             </div>
-            <div className='m-4'>
-                <h2>Name: {currCharacter?.name}</h2>
-                <h3>Titles hold: {currCharacter?.titles?.join(',')}</h3>
-                <p>House: {house?.name}</p>
-                <p>Region: {house?.region}</p>
-                <h4>Word: {house?.words}</h4>
-                <h5>Coat of Arms: {house?.coatOfArms}</h5>
-                <p>Seats hold: {house?.seats?.join(', ')}</p>
+            <div className=' flex flex-col gap-3 divide-y divide-y-orange-500'>
+                <h2 className='text-3xl  text-zinc-400 '>Name:
+                <span className='text-orange-300'> {currCharacter?.name}</span></h2>
+
+                <h3 className='text-xl text-zinc-400'>Titles hold:
+                <span className='text-orange-300'> {currCharacter?.titles?.join(',')}</span></h3>
+
+                <p className='text-xl text-zinc-400'>
+                House: <span className='text-orange-300'>{house?.name}</span> </p>
+
+                <p className='text-lg text-zinc-400'>
+                Region: <span className='text-orange-300'> {house?.region}</span></p>
+
+                <h4 className='text-lg text-zinc-400'>House Words:
+                <span className='text-orange-300'> {house?.words !== ''? house?.words : 'N/A'}</span></h4>
+
+                <p className='text-lg text-zinc-400'>Coat of Arms:
+                <span className='text-orange-300'> {house?.coatOfArms}</span></p>
+
+                <p className='text-lg text-zinc-400'>Seats hold:
+                <span className='text-orange-300'> {house?.seats?.length > 0 ?( house?.seats?.join(', ')):'na'}</span></p>
             </div>
         </div>
         {/* charts */}
-        <div className='flex justify-between gap-4'>
+        <div className='flex gap-48 p-6'>
             <SeasonChart currCharacter={currCharacter} />
             <HousesChart currCharacter={currCharacter} /> 
         </div>
