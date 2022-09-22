@@ -51,22 +51,22 @@ export const Form = () => {
   return (
    !isModalOpen ?( <form onSubmit={getResults} className='w-9/12  my-3 p-2'>
         <div className='flex flex-col my-6 text-grey-700'>
-          <label htmlFor="ip-1">Titles/aliases</label>
+          <label htmlFor="ip-1" className='text-white'>Titles/aliases</label>
           <input id='ip-1' type={'text'} className='border border-gray-500 p-1.5'
           value={title} onChange={(e)=>formDispatch(SET_TITLE(e.target.value))} />
         </div>
         <div className='flex flex-col my-6'>
-          <label htmlFor='ip-2'>House</label>
+          <label htmlFor='ip-2' className='text-white'>House</label>
           <input id='ip-2' type={'text'} className='border border-gray-500 p-1.5'
           value={houseName} onChange={(e)=>formDispatch(SET_HOUSENAME(e.target.value))}/>
         </div>
         <div className='flex flex-col my-6'>
-          <label htmlFor='ip-3'>House Words</label>
+          <label htmlFor='ip-3' className='text-white'>House Words</label>
           <input id='ip-3' type={'text'} className='border border-gray-500 p-1.5'
           value={houseWords} onChange={(e)=>formDispatch(SET_HOUSEWORDS(e.target.value))} />
         </div>
         <div className='flex flex-col my-6'>
-          <label htmlFor='ip-4'>Region</label>
+          <label htmlFor='ip-4' className='text-white'>Region</label>
           <input type={'text'} className='border border-gray-500 p-1.5'
           value={region} onChange={(e)=>formDispatch(SET_REGION(e.target.value))}/>
         </div>
