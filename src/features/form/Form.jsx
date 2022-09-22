@@ -30,10 +30,10 @@ export const Form = () => {
         spread: 150,
         zIndex:0
       });
-      setIsCorrect(true)
+      setIsCorrect(!isCorrect)
       setIsModalOpen(true)
     }
-    if(!isCorrect){
+    else{
       alert("Sorry, but that's a wrong answer");
       formDispatch(RESET())
     }
@@ -43,7 +43,7 @@ export const Form = () => {
   setTimeout(() => {
     if(isModalOpen){
       setIsModalOpen(false)
-      setIsCorrect(false)
+      setIsCorrect(!isCorrect)
       formDispatch(RESET())
     }
   }, 3000);
